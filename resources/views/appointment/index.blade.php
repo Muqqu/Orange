@@ -15,8 +15,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Darker+Grotesque:wght@600&display=swap" rel="stylesheet" />
-    <link href="/Style%20Library/css/smoothness/jquery.alerts.css" type="text/css" rel="stylesheet"/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Darker+Grotesque:wght@600&display=swap"
+        rel="stylesheet" />
+    <link href="/Style%20Library/css/smoothness/jquery.alerts.css" type="text/css" rel="stylesheet" />
     <title>coding</title>
 </head>
 
@@ -41,13 +43,14 @@
         <div class="main-content">
             <section class="appointment">
                 <div class="container">
-                    <form action="{{url('/appointments')}}" method="post">
+                    <form action="{{ url('/appointments') }}" method="post">
                         @csrf
                         <div class="row">
 
                             <div class="col-lg-6">
                                 <div class="appointment-picker mb-4 mb-lg-0"></div>
-                                <input placeholder="Select date" type="text" id="appointment_date" class="form-control" name="appointment_date">
+                                <input placeholder="Select date" type="text" id="appointment_date"
+                                    class="form-control" name="appointment_date">
 
 
                             </div>
@@ -56,19 +59,21 @@
                             <div class="col-lg-6">
                                 <h1 class="title">We are available at</h1>
 
-                                <div class="date-tags-wrapper justify-content-lg-start justify-content-center mb-lg-4" id="slots">
-                                    @foreach($slots as $slot)
-                                    @php
+                                <div class="date-tags-wrapper justify-content-lg-start justify-content-center mb-lg-4"
+                                    id="slots">
+                                    @foreach ($slots as $slot)
+                                        @php
+                                            
+                                        @endphp
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="appointment_time"
+                                                id="tag1" value="9:00 to 8:00">
+                                            <label class="form-check-label" for="tag1">
 
-                                    @endphp
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="appointment_time" id="tag1" value="9:00 to 8:00">
-                                        <label class="form-check-label" for="tag1">
+                                                {{ date('h:i a', strtotime($slot->time)) }}
 
-                                            {{date('h:i a', strtotime($slot->time));}}
-
-                                        </label>
-                                    </div>
+                                            </label>
+                                        </div>
                                     @endforeach
 
                                 </div>
@@ -76,7 +81,8 @@
                                 <h6 class="text-grayLight mb-3">How you want to meet?</h6>
                                 <div class="d-flex gap-3 appointment-type">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="appointType" id="online">
+                                        <input class="form-check-input" type="radio" name="appointType"
+                                            id="online">
                                         <label class="form-check-label" for="online">
                                             <div class="d-flex gap-2">
                                                 <img src="assets/img/png/online.png" alt="">
@@ -85,7 +91,8 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="appointType" id="onsite">
+                                        <input class="form-check-input" type="radio" name="appointType"
+                                            id="onsite">
                                         <label class="form-check-label" for="onsite">
                                             <div class="d-flex gap-2">
                                                 <img src="assets/img/png/onsite.png" alt="">
@@ -97,7 +104,8 @@
 
                                 <div class="input-wrapper mb-4">
                                     <label for="appointment-textarea" class="form-label"></label>
-                                    <textarea class="form-control" name="appointment_discuss" id="appointment-textarea" rows="3" placeholder="What do you want to discuss?" name="appointment_index"></textarea>
+                                    <textarea class="form-control" name="appointment_discuss" id="appointment-textarea" rows="3"
+                                        placeholder="What do you want to discuss?" name="appointment_index"></textarea>
                                 </div>
 
 
@@ -115,7 +123,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="text text-dark ms-lg-4 mb-0 d-flex gap-2">Got a question?<a href="#" class="text-dark">Contact
+                        <p class="text text-dark ms-lg-4 mb-0 d-flex gap-2">Got a question?<a href="#"
+                                class="text-dark">Contact
                                 us</a></p>
                     </div>
                     <div class="col-md-6">
@@ -157,7 +166,6 @@
     <script src="assets/js/custom.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
-        
         function appointDateCallback() {
             $(".date-tags-wrapper .form-check input").change(function() {
                 $('.date-tags-wrapper .form-check').removeClass('active');
@@ -168,7 +176,7 @@
         appointDateCallback();
 
 
-        APP_URL_APP = '{{url("/slots")}}';
+        APP_URL_APP = '{{ url('/slots') }}';
 
 
 
@@ -205,60 +213,60 @@
 
         function appointmentfunc() {
             let text = "Are you sure you want to  book appointment";
-           confirm(text);
+            confirm(text);
         }
         gapi.load('client:auth2', initClient);
 
         function initClient() {
-        gapi.client.init({
-            apiKey: 'AIzaSyAWOW_f4yNBkI1SbKe_lAQwicFm45SNVH8',
-            discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
-        }).then(function() {
-            console.log('Google API client initialized');
-        }, function(error) {
-            console.error('Error initializing Google API client', error);
-        });
+            gapi.client.init({
+                apiKey: 'AIzaSyAWOW_f4yNBkI1SbKe_lAQwicFm45SNVH8',
+                discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
+            }).then(function() {
+                console.log('Google API client initialized');
+            }, function(error) {
+                console.error('Error initializing Google API client', error);
+            });
         }
-       
+
         function createMeetConference() {
-  var start = new Date();
-  var end = new Date();
-  end.setMinutes(end.getMinutes() + 30);
+            var start = new Date();
+            var end = new Date();
+            end.setMinutes(end.getMinutes() + 30);
 
-  var event = {
-    'summary': 'My Event',
-    'start': {
-      'dateTime': start.toISOString(),
-      'timeZone': 'America/Los_Angeles'
-    },
-    'end': {
-      'dateTime': end.toISOString(),
-      'timeZone': 'America/Los_Angeles'
-    },
-    'conferenceData': {
-      'createRequest': {
-        'requestId': 'my-request-id'
-      },
-    },
-  };
+            var event = {
+                'summary': 'My Event',
+                'start': {
+                    'dateTime': start.toISOString(),
+                    'timeZone': 'America/Los_Angeles'
+                },
+                'end': {
+                    'dateTime': end.toISOString(),
+                    'timeZone': 'America/Los_Angeles'
+                },
+                'conferenceData': {
+                    'createRequest': {
+                        'requestId': 'my-request-id'
+                    },
+                },
+            };
 
-  var request = gapi.client.calendar.events.insert({
-    'calendarId': 'primary',
-    'resource': event
-  });
+            var request = gapi.client.calendar.events.insert({
+                'calendarId': 'primary',
+                'resource': event
+            });
 
-  request.execute(function(event) {
-    var meetLink = event.hangoutLink;
-    console.log('Meet link:', meetLink);
-    // You can now use the meetLink variable to display the conference link on your webpage or do other things with it
-  });
-}
-createMeetConference();
+            request.execute(function(event) {
+                var meetLink = event.hangoutLink;
+                console.log('Meet link:', meetLink);
+                // You can now use the meetLink variable to display the conference link on your webpage or do other things with it
+            });
+        }
+        createMeetConference();
 
-function check(){
-    alert("check");
-}
-check();
+        function check() {
+            alert("check");
+        }
+        check();
     </script>
 </body>
 
