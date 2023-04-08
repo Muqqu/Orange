@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include("layouts.head")
+@include('layouts.head')
 
 <body>
     <div class="main">
@@ -36,35 +36,40 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="wrapper">
-                                <form action="{{url('/joinIdea')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{ url('/joinIdea') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <h1 class="title">Join with<br><span class="text-primary">Idea</span></h1>
 
                                     <div class="input-wrapper">
                                         <input type="text" class="form-control" placeholder="Title" name="title">
                                         @error('title')
-                                        <span class="text" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="text" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                     <div class="input-wrapper">
                                         <textarea name="message" id="message" rows="3" class="form-control" placeholder="Message"></textarea>
                                         @error('message')
-                                        <span class="text" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="text" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                     <div class="input-wrapper">
                                         <input type="text" class="form-control" placeholder="Motive" name="motive">
                                         @error('motive')
-                                        <span class="text" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="text" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
-                                    <div class="aks-file-upload"><input type="file" name="aksfileupload[]" id="aksfileupload" hidden="" multiple=""><div class="aks-file-upload-content"><label for="aksfileupload" class="aks-file-upload-label form-control"><span>Attach Files Here</span></label></div></div>
+                                    <div class="aks-file-upload"><input type="file" name="aksfileupload[]"
+                                            id="aksfileupload" hidden="" multiple="">
+                                        <div class="aks-file-upload-content"><label for="aksfileupload"
+                                                class="aks-file-upload-label form-control"><span>Attach Files
+                                                    Here</span></label></div>
+                                    </div>
                                     <div class="input-wrapper d-none">
                                         <input type="file" class="form-control" multiple name="files" multiple>
 
@@ -73,23 +78,26 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input-wrapper">
-                                                <input type="email" id="ideaEmail" class="form-control" placeholder="Email" name="email">
+                                                <input type="email" id="ideaEmail" class="form-control"
+                                                    placeholder="Email" name="email">
                                                 @error('email')
-                                                <span class="text" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
+                                                    <span class="text" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
                                                 @enderror
                                             </div>
 
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-wrapper">
-                                                <input type="tel" class="form-control" placeholder="Contact no" name="contact_no" maxlength = "11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                <input type="tel" class="form-control" placeholder="Contact no"
+                                                    name="contact_no" maxlength="11"
+                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                             </div>
                                             @error('contact_no')
-                                            <span class="text" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                                <span class="text" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>
@@ -105,7 +113,7 @@
         <div class="cursor"></div>
     </div>
 
-    @include("layouts.footer")
+    @include('layouts.footer')
 
 </body>
 </hr>
