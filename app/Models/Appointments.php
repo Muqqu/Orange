@@ -15,6 +15,6 @@ class Appointments extends Model
         'appointment_date',
         'appointment_time',
         'appointment_discuss'
-      
+
     ];
 }
