@@ -15,6 +15,6 @@ class Business extends Model
         'email',
         'ownerName',
         'password'
-      
+
     ];
 }
