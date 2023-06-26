@@ -16,6 +16,6 @@ class Ideas extends Model
         'motive',
         'email',
         'contact_no'
-      
+
     ];
 }
