@@ -15,6 +15,6 @@ class TimeSlots extends Model
         'date',
         'time',
         'booked'
-      
+
     ];
 }
