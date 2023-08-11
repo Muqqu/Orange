@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Aeonik';
+    src: url('Aeonik-Bold.eot');
+    src: url('Aeonik-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Aeonik-Bold.woff2') format('woff2'),
+        url('Aeonik-Bold.woff') format('woff'),
+        url('Aeonik-Bold.ttf') format('truetype'),
+        url('Aeonik-Bold.svg#Aeonik-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

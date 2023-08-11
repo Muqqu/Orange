@@ -1,0 +1,760 @@
+$white: #fff;
+$black: #000;
+
+$orange: #ffa200;
+$gray: #1b1b1b;
+$grayLight: #a3a3a3;
+
+@font-face {
+  font-family: "aeonik";
+  src: url("../fonts/aeonik/Aenoik-Bold.eot");
+  src: url("../fonts/aeonik/Aenoik-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/aeonik/Aenoik-Bold.woff2") format("woff2"), url("../fonts/aeonik/Aenoik-Bold.woff") format("woff"),
+    url("../fonts/aeonik/Aenoik-Bold.ttf") format("truetype"),
+    url("../fonts/aeonik/Aenoik-Bold.svg#../fonts/Bicyclette/bicyclettelight") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+// html,
+// * {
+//   cursor: none;
+// }
+body {
+  background-color: $gray;
+
+  .btn {
+    font-size: 16px;
+    box-shadow: none;
+    border: none;
+    font-family: "DM Sans", sans-serif;
+    padding: 20px 30px;
+    border-radius: 14px;
+    display: block;
+    transition: 0.2s;
+    font-weight: 500;
+  }
+  .btn-primary {
+    background-color: $orange;
+    &:hover {
+      color: $gray;
+      background-color: $white;
+    }
+  }
+  .btn-sm {
+    border-radius: 12px;
+    padding: 10px 16px;
+  }
+  .text-primary {
+    color: $orange !important;
+  }
+  .text-grayLight {
+    color: $grayLight !important;
+  }
+  .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+  }
+  .text {
+    font-size: 14px;
+    color: $white;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+  }
+  .lead {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid $orange;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 999;
+
+    transition: transform 0.2s;
+  }
+  .scroll-anim {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: $orange;
+    animation: scroller .8s infinite normal;
+    @keyframes scroller {
+      0% {
+        bottom: 50px;
+      }
+      50% {
+        bottom: 40px;
+      }
+      100% {
+        bottom: 50px;
+      }
+    }
+  }
+  .input-wrapper {
+    margin-bottom: 12px;
+  }
+  .form-control {
+    padding: 20px 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    color: $white;
+    border-bottom: 1px solid rgba($white, 0.2);
+    &::placeholder {
+      color: rgba($white, 0.6);
+    }
+    &:focus {
+      color: $white;
+      box-shadow: none;
+      background-color: transparent;
+      border-bottom: 1px solid rgba($orange, 0.8);
+    }
+    &::-webkit-inner-spin-button,
+    &::-webkit-outter-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-text-fill-color: $white;
+      -webkit-box-shadow: 0 0 0px 1000px rgba($orange, 0) inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+  a {
+    text-decoration: none;
+    display: block;
+  }
+  .title {
+    font-size: 80px;
+    color: $grayLight;
+    font-weight: 700;
+    font-family: "Darker Grotesque", sans-serif;
+    line-height: 82px;
+    margin-bottom: 40px;
+  }
+  .social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    .list-item {
+      a {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: $orange;
+        color: $white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+    }
+  }
+  .ui-datepicker {
+    width: 100%;
+    max-width: 500px;
+    background-color: transparent;
+    border: none !important;
+    .ui-datepicker-header {
+      background-color: rgba($white, 0.2);
+      border: none;
+      color: $grayLight;
+      .ui-corner-all {
+        // background-color: $grayLight;
+        background-color: rgba($white, 0.2);
+      }
+    }
+    .ui-datepicker-calendar {
+      thead {
+        tr {
+          th {
+            span {
+              color: $grayLight;
+            }
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            a {
+              color: $grayLight;
+              background-color: rgba($white, 0.1);
+              border: none;
+              padding: 20px 10px;
+              border-radius: 8px;
+              &:hover {
+                background-color: $orange;
+                color: $white;
+              }
+            }
+          }
+          .ui-datepicker-current-day {
+            a {
+              color: $white;
+              background-color: $orange !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .card {
+    border-radius: 16px;
+  }
+  .success-card {
+    background-color: rgba($white, .2);
+    border-radius: 16px;
+    .card-img {
+      width: 150px;
+      height: 150px;
+      margin: 20px auto 30px;
+      display: block;
+    }
+    .card-title {
+      font-size: 28px;
+      color: $orange;
+    }
+    .card-text {
+      font-size: $grayLight;
+    }
+  }
+  .main {
+    overflow: hidden;
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      transition: all 0.5s;
+      .marquee-content {
+        font-size: 22px;
+        font-weight: 500;
+        color: $gray;
+        background-color: $orange;
+        display: flex;
+        justify-content: center;
+        transition: .5s all;
+        a {
+          color: $gray;
+          text-decoration: underline;
+        }
+      }
+      .navbar {
+        padding: 16px 0;
+      }
+    }
+    .header.active {
+      padding: 0;
+      background-color: rgba($gray, 0.4);
+      backdrop-filter: blur(10px);
+      box-shadow: 4px 0 10px rgba($black, 0.5);
+      .navbar {
+        padding: 8px 0;
+      }
+      .marquee-content {
+        display: none;
+      }
+    }
+
+    .main-content {
+      section {
+        position: relative;
+      }
+      .section {
+        height: 100vh;
+        min-height: 600px;
+        padding: 40px 0;
+        .wrapper {
+          width: 100%;
+          height: calc(100vh - 80px);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          z-index: 1;
+          pointer-events: none;
+          padding: 0 12px;
+        }
+        .main-title {
+          font-size: 100px;
+          line-height: 100px;
+          color: $white;
+          font-family: "Darker Grotesque", sans-serif;
+          margin-bottom: 30px;
+          pointer-events: none;
+          transition: 0.4s;
+        }
+        .text {
+          max-width: 300px;
+          pointer-events: none;
+          transition: 0.4s;
+        }
+        .btn {
+          pointer-events: all;
+          cursor: none;
+        }
+        #circleObj {
+          position: absolute;
+          width: 500px;
+          height: 500px;
+          background-color: $orange;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          border-radius: 50%;
+          transition: 0.1s transform;
+        }
+      }
+      .page-banner {
+        padding: 160px 0 0;
+        .title-wrapper {
+          padding: 60px;
+          border-radius: 16px;
+          background-color: $orange;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            height: 100%;
+            background-image: url('../img/png/banner-bg.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            animation: 8s bannerBg ease infinite;
+            pointer-events: none;
+          }
+          @keyframes bannerBg {
+            0% {
+              width: 110%;
+            }
+            50% {
+              width: 100%;
+            }
+            100% {
+              width: 110%;
+            }
+          }
+          .banner-title {
+            font-size: 44px;
+            font-weight: 600;
+            font-family: 'aeonik', sans-serif;
+            margin-bottom: 0;
+          }
+        }
+      }
+      .business-card {
+        background-color: $orange;
+        .card-body {
+          position: relative;
+          z-index: 1;
+        }
+        .card-img {
+          position: absolute;
+          width: 200px;
+          opacity: .05;
+          z-index: 0;
+          right: 10px;
+          top: 50%;
+          transform: translate(0, -50%);
+        }
+        .card-title {
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+        .card-text {
+          font-size: 14px;
+          margin-bottom: 20px;
+        }
+        .btn {
+          color: $gray;
+          border: 1px solid $gray;
+          &:hover {
+            background-color: $gray;
+            color: $orange;
+          }
+        }
+      }
+      .default-sec {
+        padding: 100px 0;
+        .sec-title {
+          font-size: 32px;
+          color: $orange;
+          margin-bottom: 30px;
+        }
+      }
+      .idea {
+        overflow: hidden;
+      }
+      .idea.active {
+        .main-title,
+        .text {
+          color: $gray;
+        }
+        .btn {
+          background-color: $gray;
+          color: $orange;
+          &:hover {
+            background-color: white;
+            color: $gray;
+          }
+        }
+      }
+      .register {
+        .register-img {
+          width: 100%;
+          height: 100%;
+          background-image: url("../img/jpg/register-img.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+        .wrapper {
+          padding: 30px 0;
+          height: 100%;
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          form {
+            width: 100%;
+            max-width: 400px;
+          }
+        }
+        .radios-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          .form-check {
+            padding: 0;
+            .form-check-input {
+              display: none;
+            }
+            .form-check-label {
+              padding: 4px;
+              border-radius: 4px;
+              img {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+              }
+            }
+            .form-check-label.active {
+              background-color: $orange;
+            }
+          }
+        }
+      }
+      .video {
+        padding: 100px 0 30px;
+        .video-main-wrapper {
+          .video-wrapper {
+            .video-player-wrapper {
+              border-radius: 14px;
+              overflow: hidden;
+              position: relative;
+              .controls-wrapper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                .btn-play {
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 50%;
+                  box-shadow: none;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  display: block;
+                  border: none;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  z-index: 1;
+                }
+              }
+              video {
+                width: 100%;
+              }
+            }
+            .video-title {
+              font-size: 16px;
+              color: $orange;
+              margin-bottom: 0;
+            }
+          }
+        }
+        .accordion {
+          .accordion-item {
+            background-color: rgba($white, 0.05);
+            border: none;
+            .accordion-header {
+              .accordion-button {
+                box-shadow: none;
+                background-color: transparent;
+                &::after {
+                  filter: invert(1);
+                }
+              }
+            }
+          }
+        }
+        .video-card {
+          border: none;
+          background-color: rgba($white, 0.05);
+          margin-bottom: 24px;
+          display: block;
+          &:hover {
+            background-color: rgba($white, 0.08);
+          }
+          .card-img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+          }
+          .video-title {
+            font-size: 14px;
+            color: $orange;
+            margin-bottom: 4px;
+          }
+          .video-desc {
+            font-size: 12px;
+            color: $grayLight;
+            margin-bottom: 0;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+          }
+        }
+      }
+      .appointment {
+        padding: 160px 0 60px;
+        .date-tags-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          .form-check {
+            padding: 0;
+            input {
+              display: none;
+            }
+            .form-check-label {
+              font-size: 16px;
+              color: $grayLight;
+              padding: 10px 20px;
+              border-radius: 12px;
+              background-color: rgba($white, 0.2);
+              font-weight: 500;
+              &:hover {
+                color: $white;
+                background-color: $orange;
+              }
+            }
+          }
+          .form-check.active {
+            .form-check-label {
+              color: $white;
+              background-color: $orange;
+            }
+          }
+        }
+        .map-wrapper {
+          border-radius: 16px;
+          overflow: hidden;
+          max-width: 500px;
+        }
+        .appointment-type {
+          .form-check {
+            padding: 0;
+            input {
+              display: none;
+            }
+            .form-check-label {
+              font-size: 16px;
+              color: $grayLight;
+              padding: 10px 20px;
+              border-radius: 12px;
+              background-color: rgba($white, 0.2);
+              &:hover {
+                color: $white;
+                background-color: $orange;
+                img {
+                  filter: brightness(2);
+                }
+              }
+              img {
+                width: 40px;
+              }
+            }
+          }
+          .form-check.active {
+            .form-check-label {
+              color: $white;
+              background-color: $orange;
+              img {
+                filter: brightness(2);
+              }
+            }
+          }
+        }
+      }
+      .success {
+        min-height: 100vh;
+        padding: 160px 0 60px;
+
+      }
+    }
+    .footer {
+      position: relative;
+      padding: 190px 0 30px;
+      background-color: $orange;
+      .footer-title {
+        font-size: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50px;
+        transform: translate(0, -50%);
+        z-index: 1;
+        color: $gray;
+        opacity: 5%;
+        pointer-events: none;
+      }
+    }
+  }
+  .main.index {
+    .cursor {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  @media (max-width: 991px) {
+    .main {
+      .header {
+        box-shadow: 4px 0 10px rgba($black, 0.5);
+        .navbar {
+          padding: 8px 0;
+        }
+        .marquee-content {
+          padding: 4px 12px;
+          font-size: 12px;
+        }
+      }
+      .main-content {
+        .section {
+          min-height: 80vh;
+          .main-title {
+            font-size: 80px;
+            line-height: 82px;
+          }
+        }
+        .video {
+          padding: 84px 0 30px;
+          .video-wrapper {
+            .video-player-wrapper {
+              .controls-wrapper {
+                .btn-play {
+                  display: none;
+                }
+              }
+            }
+          }
+          .video-card {
+            margin-bottom: 12px;
+          }
+        }
+        .appointment {
+          padding: 110px 0 30px;
+        }
+        .page-banner {
+          padding: 110px 0 0;
+          .title-wrapper {
+            padding: 30px;
+            .banner-title {
+              font-size: 24px;
+            }
+          }
+        }
+        .default-sec {
+          padding: 30px 0;
+          .sec-title {
+            font-size: 22px;
+            margin-bottom: 16px;
+          }
+        }
+      }
+      .footer {
+        .footer-title {
+          font-size: 100px;
+        }
+      }
+      .cursor {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    .btn {
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    .title {
+      font-size: 40px;
+      line-height: 42px;
+    }
+    .main {
+      .main-content {
+        .section {
+          .main-title {
+            font-size: 60px;
+            line-height: 62px;
+          }
+        }
+        .appointment {
+          padding: 90px 0 30px;
+        }
+        .page-banner {
+          padding: 90px 0 0;
+          .title-wrapper {
+            &::before {
+              animation: none;
+            }
+          }
+        }
+      }
+      .footer {
+        padding: 30px 0;
+      }
+    }
+  }
+}
